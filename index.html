@@ -1,4 +1,25 @@
 <!DOCTYPE html>
+<!--
+  ========================================
+  PACIFIC COAST TAXI - APLICACION WEB
+  ========================================
+  
+  Tipo: Aplicacion Web Visual (Frontend)
+  Tecnologias: HTML5, CSS3, JavaScript Vanilla
+  
+  Almacenamiento: LocalStorage para datos temporales
+  Exportacion: Excel (XLSX) para reportes e inteligencia de negocio
+  
+  Funcionalidades:
+  - Reserva de viajes
+  - Gestion de conductores
+  - Panel de administracion
+  - Reportes en Excel (Viajes, Ingresos, Conductores, BI)
+  
+  Autor: Pacific Coast Taxi Team
+  Version: 1.0.0
+  ========================================
+-->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -60,6 +81,12 @@
               <circle cx="17" cy="17" r="2"/>
             </svg>
             Mis Viajes
+          </a>
+          <a href="admin.html" class="dropdown-item" id="adminLink" style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Panel Admin
           </a>
           <button class="dropdown-item" id="reviewBtn">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon">

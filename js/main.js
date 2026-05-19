@@ -85,17 +85,24 @@ function initUserMenu() {
 // ========================================
 function checkUserLogin() {
   const userName = localStorage.getItem('userName');
+  const adminEmail = localStorage.getItem('adminEmail');
   const loginBtn = document.getElementById('loginBtn');
   const loginBtnMobile = document.getElementById('loginBtnMobile');
   const userMenu = document.getElementById('userMenu');
   const userNameSpan = document.getElementById('userName');
+  const adminLink = document.getElementById('adminLink');
 
-  if (userName) {
+  if (userName || adminEmail) {
     // User is logged in
     if (loginBtn) loginBtn.style.display = 'none';
     if (loginBtnMobile) loginBtnMobile.style.display = 'none';
     if (userMenu) userMenu.style.display = 'block';
-    if (userNameSpan) userNameSpan.textContent = userName;
+    if (userNameSpan) userNameSpan.textContent = adminEmail ? 'Administrador' : userName;
+    
+    // Show admin link if admin is logged in
+    if (adminLink && adminEmail) {
+      adminLink.style.display = 'flex';
+    }
   } else {
     // User is not logged in
     if (loginBtn) loginBtn.style.display = 'flex';
