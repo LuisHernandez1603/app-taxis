@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Viajes | Pacific Coast Taxi</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="icon" href="../public/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">
+          <div class="sidebar-logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+            </svg>
+          </div>
+          <span class="sidebar-logo-text">Pacific<span>Taxi</span></span>
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <span class="nav-section-title">Principal</span>
+          <a href="../index.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/>
+              <rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+            </svg>
+            <span class="nav-item-text">Dashboard</span>
+          </a>
+          <a href="trips.html" class="nav-item active">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+            </svg>
+            <span class="nav-item-text">Viajes</span>
+          </a>
+          <a href="drivers.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <span class="nav-item-text">Conductores</span>
+          </a>
+          <a href="clients.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="nav-item-text">Clientes</span>
+          </a>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Reportes</span>
+          <a href="reports.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/>
+            </svg>
+            <span class="nav-item-text">Reportes Excel</span>
+          </a>
+          <a href="analytics.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+            </svg>
+            <span class="nav-item-text">Analitica BI</span>
+          </a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-card">
+          <div class="avatar">AD</div>
+          <div class="user-info">
+            <div class="user-name">Administrador</div>
+            <div class="user-role">Admin Principal</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="btn-icon btn-ghost mobile-menu-btn" onclick="toggleSidebar()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+          <div>
+            <h1 class="header-title">Gestion de Viajes</h1>
+            <div class="header-breadcrumb">
+              <a href="../index.html">Dashboard</a>
+              <span class="separator">/</span>
+              <span class="current">Viajes</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" placeholder="Buscar viajes..." id="searchTrips">
+          </div>
+        </div>
+      </header>
+      
+      <div class="page-content">
+        <div class="page-header">
+          <div>
+            <h2 class="page-title">Todos los Viajes</h2>
+            <p class="page-subtitle">Gestiona y monitorea todos los viajes</p>
+          </div>
+          <div class="page-actions">
+            <select class="form-select" id="statusFilter" style="width: auto;">
+              <option value="all">Todos los estados</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmado">Confirmado</option>
+              <option value="en_curso">En Curso</option>
+              <option value="completado">Completado</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+            <button class="btn btn-secondary" onclick="exportTrips()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Exportar Excel
+            </button>
+            <button class="btn btn-primary" onclick="openTripModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Nuevo Viaje
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-grid" style="grid-template-columns: repeat(5, 1fr); margin-bottom: var(--space-lg);">
+          <div class="stat-card" id="statTotal"></div>
+          <div class="stat-card" id="statPending"></div>
+          <div class="stat-card" id="statActive"></div>
+          <div class="stat-card" id="statCompleted"></div>
+          <div class="stat-card" id="statCancelled"></div>
+        </div>
+
+        <!-- Trips Table -->
+        <div class="table-container">
+          <table class="table" id="tripsTable">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Cliente</th>
+                <th>Ruta</th>
+                <th>Conductor</th>
+                <th>Fecha/Hora</th>
+                <th>Servicio</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tripsTableBody">
+              <!-- Rows populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Trip Modal -->
+  <div class="modal" id="tripModal">
+    <div class="modal-overlay" onclick="closeModal('tripModal')"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="tripModalTitle">Nuevo Viaje</h3>
+        <button class="modal-close" onclick="closeModal('tripModal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <form class="modal-body" id="tripForm" onsubmit="saveTrip(event)">
+        <input type="hidden" name="tripId" id="tripId">
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Cliente</label>
+            <input type="text" class="form-input" name="clientName" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefono</label>
+            <input type="tel" class="form-input" name="clientPhone" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Origen</label>
+            <input type="text" class="form-input" name="origin" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Destino</label>
+            <input type="text" class="form-input" name="destination" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Fecha/Hora</label>
+            <input type="datetime-local" class="form-input" name="date" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Servicio</label>
+            <select class="form-select" name="service" required>
+              <option value="Estandar">Estandar</option>
+              <option value="Premium">Premium</option>
+              <option value="Aeropuerto">Aeropuerto</option>
+              <option value="Tour">Tour</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Precio (C$)</label>
+            <input type="number" class="form-input" name="price" required min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Estado</label>
+            <select class="form-select" name="status">
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmado">Confirmado</option>
+              <option value="en_curso">En Curso</option>
+              <option value="completado">Completado</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Conductor</label>
+          <select class="form-select" name="driverId" id="driverSelect"></select>
+        </div>
+        <div class="modal-footer" style="margin: var(--space-lg) calc(var(--space-lg) * -1) calc(var(--space-lg) * -1); padding: var(--space-lg); border-top: 1px solid var(--color-border);">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('tripModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/excel.js"></script>
+  <script>
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      DataStore.init();
+      renderTrips();
+      renderStats();
+      populateDrivers();
+      setupListeners();
+    });
+
+    function setupListeners() {
+      document.getElementById('statusFilter').addEventListener('change', (e) => {
+        currentFilter = e.target.value;
+        renderTrips();
+      });
+      document.getElementById('searchTrips').addEventListener('input', Utils.debounce((e) => {
+        searchQuery = e.target.value;
+        renderTrips();
+      }, 300));
+    }
+
+    function renderStats() {
+      const stats = DataStore.getStats();
+      document.getElementById('statTotal').innerHTML = createStatCard('Total', stats.totalTrips, 'blue');
+      document.getElementById('statPending').innerHTML = createStatCard('Pendientes', stats.pendingTrips, 'yellow');
+      document.getElementById('statActive').innerHTML = createStatCard('En Curso', stats.activeTrips, 'blue');
+      document.getElementById('statCompleted').innerHTML = createStatCard('Completados', stats.completedTrips, 'green');
+      document.getElementById('statCancelled').innerHTML = createStatCard('Cancelados', stats.cancelledTrips, 'red');
+    }
+
+    function createStatCard(label, value, color) {
+      return `
+        <div class="stat-card-label">${label}</div>
+        <div class="stat-card-value" style="color: var(--chart-${color});">${value}</div>
+      `;
+    }
+
+    function renderTrips() {
+      const trips = DataStore.getTrips({ status: currentFilter === 'all' ? null : currentFilter, search: searchQuery });
+      const tbody = document.getElementById('tripsTableBody');
+      
+      if (trips.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" class="text-center text-muted" style="padding: 2rem;">No hay viajes</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = trips.map(trip => `
+        <tr>
+          <td><code style="background: var(--color-surface-elevated); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); font-size: 0.75rem;">${trip.code}</code></td>
+          <td>
+            <div style="font-weight: 500;">${trip.clientName}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">${trip.clientPhone}</div>
+          </td>
+          <td>
+            <div style="font-size: 0.875rem;">${trip.origin}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">→ ${trip.destination}</div>
+          </td>
+          <td>${trip.driverName || 'Sin asignar'}</td>
+          <td>
+            <div>${Utils.formatDate(trip.date)}</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">${Utils.formatTime(trip.date)}</div>
+          </td>
+          <td><span class="badge badge-neutral">${trip.service}</span></td>
+          <td style="font-weight: 600;">${Utils.formatCurrency(trip.price)}</td>
+          <td>${Utils.getStatusBadge(trip.status)}</td>
+          <td>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn-icon btn-ghost" onclick="editTrip('${trip.id}')" title="Editar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button class="btn-icon btn-ghost" onclick="deleteTrip('${trip.id}')" title="Eliminar" style="color: var(--color-danger);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function populateDrivers() {
+      const drivers = DataStore.getDrivers({ status: 'activo' });
+      document.getElementById('driverSelect').innerHTML = `
+        <option value="">Sin asignar</option>
+        ${drivers.map(d => `<option value="${d.id}">${d.name}</option>`).join('')}
+      `;
+    }
+
+    function openTripModal(tripId = null) {
+      document.getElementById('tripModalTitle').textContent = tripId ? 'Editar Viaje' : 'Nuevo Viaje';
+      document.getElementById('tripId').value = tripId || '';
+      
+      if (tripId) {
+        const trip = DataStore.getTrips().find(t => t.id === tripId);
+        if (trip) {
+          const form = document.getElementById('tripForm');
+          form.clientName.value = trip.clientName;
+          form.clientPhone.value = trip.clientPhone;
+          form.origin.value = trip.origin;
+          form.destination.value = trip.destination;
+          form.date.value = trip.date.slice(0, 16);
+          form.service.value = trip.service;
+          form.price.value = trip.price;
+          form.status.value = trip.status;
+          form.driverId.value = trip.driverId || '';
+        }
+      } else {
+        document.getElementById('tripForm').reset();
+        const now = new Date();
+        now.setMinutes(now.getMinutes() + 30);
+        document.querySelector('input[name="date"]').value = now.toISOString().slice(0, 16);
+      }
+      
+      document.getElementById('tripModal').classList.add('active');
+    }
+
+    function saveTrip(e) {
+      e.preventDefault();
+      const form = e.target;
+      const tripId = form.tripId.value;
+      const driver = DataStore.getDrivers().find(d => d.id === form.driverId.value);
+      
+      const data = {
+        clientName: form.clientName.value,
+        clientPhone: form.clientPhone.value,
+        origin: form.origin.value,
+        destination: form.destination.value,
+        date: new Date(form.date.value).toISOString(),
+        service: form.service.value,
+        price: parseInt(form.price.value),
+        commission: Math.floor(parseInt(form.price.value) * 0.15),
+        status: form.status.value,
+        driverId: form.driverId.value || null,
+        driverName: driver?.name || 'Sin asignar'
+      };
+
+      if (tripId) {
+        DataStore.updateTrip(tripId, data);
+        Utils.showToast('Viaje actualizado', 'success');
+      } else {
+        DataStore.addTrip(data);
+        Utils.showToast('Viaje creado', 'success');
+      }
+
+      closeModal('tripModal');
+      renderTrips();
+      renderStats();
+    }
+
+    function editTrip(id) {
+      openTripModal(id);
+    }
+
+    async function deleteTrip(id) {
+      if (await Utils.confirm('¿Eliminar este viaje?')) {
+        DataStore.deleteTrip(id);
+        renderTrips();
+        renderStats();
+        Utils.showToast('Viaje eliminado', 'success');
+      }
+    }
+
+    function exportTrips() {
+      ExcelExport.exportTrips({ status: currentFilter === 'all' ? null : currentFilter });
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

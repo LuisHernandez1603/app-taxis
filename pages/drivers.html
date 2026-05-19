@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conductores | Pacific Coast Taxi</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="icon" href="../public/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">
+          <div class="sidebar-logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+            </svg>
+          </div>
+          <span class="sidebar-logo-text">Pacific<span>Taxi</span></span>
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <span class="nav-section-title">Principal</span>
+          <a href="../index.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/>
+              <rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+            </svg>
+            <span class="nav-item-text">Dashboard</span>
+          </a>
+          <a href="trips.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/>
+            </svg>
+            <span class="nav-item-text">Viajes</span>
+          </a>
+          <a href="drivers.html" class="nav-item active">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <span class="nav-item-text">Conductores</span>
+          </a>
+          <a href="clients.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="nav-item-text">Clientes</span>
+          </a>
+        </div>
+        <div class="nav-section">
+          <span class="nav-section-title">Reportes</span>
+          <a href="reports.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/>
+            </svg>
+            <span class="nav-item-text">Reportes Excel</span>
+          </a>
+          <a href="analytics.html" class="nav-item">
+            <svg class="nav-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>
+            </svg>
+            <span class="nav-item-text">Analitica BI</span>
+          </a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-card">
+          <div class="avatar">AD</div>
+          <div class="user-info">
+            <div class="user-name">Administrador</div>
+            <div class="user-role">Admin Principal</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+    
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <button class="btn-icon btn-ghost mobile-menu-btn" onclick="toggleSidebar()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+          <div>
+            <h1 class="header-title">Conductores</h1>
+            <div class="header-breadcrumb">
+              <a href="../index.html">Dashboard</a>
+              <span class="separator">/</span>
+              <span class="current">Conductores</span>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" placeholder="Buscar conductores..." id="searchDrivers">
+          </div>
+        </div>
+      </header>
+      
+      <div class="page-content">
+        <div class="page-header">
+          <div>
+            <h2 class="page-title">Flota de Conductores</h2>
+            <p class="page-subtitle">Gestiona tu equipo de conductores</p>
+          </div>
+          <div class="page-actions">
+            <select class="form-select" id="statusFilter" style="width: auto;">
+              <option value="all">Todos</option>
+              <option value="activo">Activos</option>
+              <option value="inactivo">Inactivos</option>
+            </select>
+            <button class="btn btn-secondary" onclick="exportDrivers()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Exportar
+            </button>
+            <button class="btn btn-primary" onclick="openDriverModal()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Nuevo Conductor
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: var(--space-lg);">
+          <div class="stat-card" id="statTotal"></div>
+          <div class="stat-card" id="statActive"></div>
+          <div class="stat-card" id="statInactive"></div>
+          <div class="stat-card" id="statAvgRating"></div>
+        </div>
+
+        <!-- Drivers Grid -->
+        <div class="grid grid-cols-3 gap-lg" id="driversGrid">
+          <!-- Cards populated by JS -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Driver Modal -->
+  <div class="modal" id="driverModal">
+    <div class="modal-overlay" onclick="closeModal('driverModal')"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="driverModalTitle">Nuevo Conductor</h3>
+        <button class="modal-close" onclick="closeModal('driverModal')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <form class="modal-body" id="driverForm" onsubmit="saveDriver(event)">
+        <input type="hidden" name="driverId" id="driverId">
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Nombre Completo</label>
+            <input type="text" class="form-input" name="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefono</label>
+            <input type="tel" class="form-input" name="phone" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" name="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Licencia</label>
+            <input type="text" class="form-input" name="license" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Vehiculo</label>
+            <input type="text" class="form-input" name="vehicle" required placeholder="Toyota Corolla 2020">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Placa</label>
+            <input type="text" class="form-input" name="plate" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="form-group">
+            <label class="form-label">Estado</label>
+            <select class="form-select" name="status">
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Comision (%)</label>
+            <input type="number" class="form-input" name="commissionRate" value="15" min="0" max="100">
+          </div>
+        </div>
+        <div class="modal-footer" style="margin: var(--space-lg) calc(var(--space-lg) * -1) calc(var(--space-lg) * -1); padding: var(--space-lg); border-top: 1px solid var(--color-border);">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('driverModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/excel.js"></script>
+  <script>
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      DataStore.init();
+      renderDrivers();
+      renderStats();
+      setupListeners();
+    });
+
+    function setupListeners() {
+      document.getElementById('statusFilter').addEventListener('change', (e) => {
+        currentFilter = e.target.value;
+        renderDrivers();
+      });
+      document.getElementById('searchDrivers').addEventListener('input', Utils.debounce((e) => {
+        searchQuery = e.target.value.toLowerCase();
+        renderDrivers();
+      }, 300));
+    }
+
+    function renderStats() {
+      const drivers = DataStore.getDrivers();
+      const active = drivers.filter(d => d.status === 'activo').length;
+      const avgRating = drivers.length > 0 ? (drivers.reduce((sum, d) => sum + d.rating, 0) / drivers.length).toFixed(1) : 0;
+      
+      document.getElementById('statTotal').innerHTML = `<div class="stat-card-label">Total</div><div class="stat-card-value">${drivers.length}</div>`;
+      document.getElementById('statActive').innerHTML = `<div class="stat-card-label">Activos</div><div class="stat-card-value" style="color: var(--chart-green);">${active}</div>`;
+      document.getElementById('statInactive').innerHTML = `<div class="stat-card-label">Inactivos</div><div class="stat-card-value" style="color: var(--chart-red);">${drivers.length - active}</div>`;
+      document.getElementById('statAvgRating').innerHTML = `<div class="stat-card-label">Rating Promedio</div><div class="stat-card-value" style="color: var(--chart-yellow);">${avgRating} ⭐</div>`;
+    }
+
+    function renderDrivers() {
+      let drivers = DataStore.getDrivers({ status: currentFilter === 'all' ? null : currentFilter });
+      
+      if (searchQuery) {
+        drivers = drivers.filter(d => 
+          d.name.toLowerCase().includes(searchQuery) ||
+          d.vehicle.toLowerCase().includes(searchQuery) ||
+          d.plate.toLowerCase().includes(searchQuery)
+        );
+      }
+      
+      const grid = document.getElementById('driversGrid');
+      
+      if (drivers.length === 0) {
+        grid.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1; padding: 3rem;"><p class="text-muted">No hay conductores</p></div>`;
+        return;
+      }
+
+      grid.innerHTML = drivers.map(driver => `
+        <div class="card">
+          <div style="padding: var(--space-lg);">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: var(--space-md);">
+              <div style="display: flex; align-items: center; gap: var(--space-md);">
+                <div class="avatar" style="width: 48px; height: 48px; font-size: 1rem;">${Utils.getInitials(driver.name)}</div>
+                <div>
+                  <div style="font-weight: 600; color: var(--color-text-primary);">${driver.name}</div>
+                  <div style="font-size: 0.75rem; color: var(--color-text-muted);">${driver.phone}</div>
+                </div>
+              </div>
+              <span class="status-dot ${driver.status === 'activo' ? 'online' : 'offline'}"></span>
+            </div>
+            
+            <div style="background: var(--color-surface-elevated); padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+              <div style="font-size: 0.875rem; font-weight: 500; color: var(--color-text-primary);">${driver.vehicle}</div>
+              <div style="font-size: 0.75rem; color: var(--color-text-muted);">Placa: ${driver.plate}</div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); text-align: center; margin-bottom: var(--space-md);">
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 600; color: var(--color-text-primary);">${driver.totalTrips}</div>
+                <div style="font-size: 0.625rem; color: var(--color-text-muted); text-transform: uppercase;">Viajes</div>
+              </div>
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 600; color: var(--chart-green);">${Utils.formatCurrency(driver.totalEarnings).replace('C$ ', '')}</div>
+                <div style="font-size: 0.625rem; color: var(--color-text-muted); text-transform: uppercase;">Ganado</div>
+              </div>
+              <div>
+                <div style="font-size: 1.25rem; font-weight: 600; color: var(--chart-yellow);">${driver.rating} ⭐</div>
+                <div style="font-size: 0.625rem; color: var(--color-text-muted); text-transform: uppercase;">Rating</div>
+              </div>
+            </div>
+            
+            <div style="display: flex; gap: var(--space-sm);">
+              <button class="btn btn-secondary btn-sm" style="flex: 1;" onclick="editDriver('${driver.id}')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+                Editar
+              </button>
+              <button class="btn btn-ghost btn-sm" onclick="viewDriverTrips('${driver.id}')" title="Ver viajes">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                </svg>
+              </button>
+              <button class="btn btn-ghost btn-sm" onclick="deleteDriver('${driver.id}')" title="Eliminar" style="color: var(--color-danger);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openDriverModal(driverId = null) {
+      document.getElementById('driverModalTitle').textContent = driverId ? 'Editar Conductor' : 'Nuevo Conductor';
+      document.getElementById('driverId').value = driverId || '';
+      
+      if (driverId) {
+        const driver = DataStore.getDrivers().find(d => d.id === driverId);
+        if (driver) {
+          const form = document.getElementById('driverForm');
+          form.name.value = driver.name;
+          form.phone.value = driver.phone;
+          form.email.value = driver.email || '';
+          form.license.value = driver.license;
+          form.vehicle.value = driver.vehicle;
+          form.plate.value = driver.plate;
+          form.status.value = driver.status;
+          form.commissionRate.value = driver.commissionRate || 15;
+        }
+      } else {
+        document.getElementById('driverForm').reset();
+      }
+      
+      document.getElementById('driverModal').classList.add('active');
+    }
+
+    function saveDriver(e) {
+      e.preventDefault();
+      const form = e.target;
+      const driverId = form.driverId.value;
+      
+      const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        email: form.email.value,
+        license: form.license.value,
+        vehicle: form.vehicle.value,
+        plate: form.plate.value,
+        status: form.status.value,
+        commissionRate: parseInt(form.commissionRate.value) || 15
+      };
+
+      if (driverId) {
+        DataStore.updateDriver(driverId, data);
+        Utils.showToast('Conductor actualizado', 'success');
+      } else {
+        DataStore.addDriver(data);
+        Utils.showToast('Conductor agregado', 'success');
+      }
+
+      closeModal('driverModal');
+      renderDrivers();
+      renderStats();
+    }
+
+    function editDriver(id) {
+      openDriverModal(id);
+    }
+
+    async function deleteDriver(id) {
+      if (await Utils.confirm('¿Eliminar este conductor?')) {
+        DataStore.deleteDriver(id);
+        renderDrivers();
+        renderStats();
+        Utils.showToast('Conductor eliminado', 'success');
+      }
+    }
+
+    function viewDriverTrips(id) {
+      window.location.href = `trips.html?driver=${id}`;
+    }
+
+    function exportDrivers() {
+      ExcelExport.exportDrivers({ status: currentFilter === 'all' ? null : currentFilter });
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.getElementById('sidebarOverlay').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
