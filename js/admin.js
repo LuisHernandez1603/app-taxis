@@ -178,10 +178,6 @@ function getSampleDrivers() {
   
   localStorage.setItem('drivers', JSON.stringify(sampleDrivers));
   return sampleDrivers;
-  ];
-  
-  localStorage.setItem('drivers', JSON.stringify(sampleDrivers));
-  return sampleDrivers;
 }
 
 function getSampleReviews() {

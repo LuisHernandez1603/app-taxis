@@ -544,54 +544,5 @@
 
   <script src="js/main.js"></script>
   <script src="js/admin.js"></script>
-  
-  <script>
-    // Manejo de tabs de navegacion
-    document.addEventListener('DOMContentLoaded', function() {
-      const tabButtons = document.querySelectorAll('.admin-tab');
-      const tabContents = document.querySelectorAll('.admin-tab-content');
-      
-      tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const tabName = this.getAttribute('data-tab');
-          
-          // Remover clase active de todos los botones y contenidos
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          tabContents.forEach(content => content.classList.remove('active'));
-          
-          // Agregar clase active al boton clickeado
-          this.classList.add('active');
-          
-          // Mostrar el contenido correspondiente
-          const contentId = tabName === 'trips' ? 'tripsContent' : 
-                           tabName === 'drivers' ? 'driversContent' : 
-                           tabName === 'reports' ? 'reportsContent' : 
-                           'biContent';
-          
-          const content = document.getElementById(contentId);
-          if (content) {
-            content.classList.add('active');
-          }
-          
-          // Cargar datos segun el tab
-          if (tabName === 'trips') {
-            loadTrips();
-          } else if (tabName === 'drivers') {
-            loadDrivers();
-          } else if (tabName === 'reports') {
-            // Los reportes ya estan cargados
-          } else if (tabName === 'bi') {
-            // El BI ya esta cargado
-          }
-        });
-      });
-      
-      // Cargar datos iniciales
-      loadTrips();
-    });
-    
-    // Establecer año actual en footer
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
