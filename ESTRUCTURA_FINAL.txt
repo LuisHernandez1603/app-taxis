@@ -1,0 +1,182 @@
+========================================
+PACIFIC COAST TAXI - APLICACION COMPLETA
+========================================
+
+ESTRUCTURA DE CARPETAS:
+/
+├── index.html                 (Dashboard Admin - Protegido)
+├── login.html                 (Página de Login con 3 roles)
+├── driver-panel.html          (Panel del Conductor - Protegido)
+├── passenger-panel.html       (Panel del Pasajero - Protegido)
+├── landing.html               (Página pública)
+├── about.html                 (Nosotros)
+├── contact.html               (Contacto)
+│
+├── css/
+│   ├── variables.css          (Variables de tema)
+│   ├── base.css               (Reset y estilos globales)
+│   ├── components.css         (Componentes reutilizables)
+│   └── dashboard.css          (Estilos del dashboard)
+│
+├── js/
+│   ├── auth.js                (Sistema de autenticación y roles)
+│   ├── data.js                (Capa de datos - simulación)
+│   ├── utils.js               (Funciones compartidas)
+│   ├── excel.js               (Exportación a Excel)
+│   ├── dashboard.js           (Lógica del dashboard admin)
+│   ├── driver-panel.js        (Lógica panel conductor)
+│   ├── passenger-panel.js     (Lógica panel pasajero)
+│   ├── pages/
+│   │   ├── trips.js           (Gestión de viajes)
+│   │   ├── drivers.js         (Gestión de conductores)
+│   │   ├── clients.js         (Gestión de clientes)
+│   │   └── reports.js         (Reportes BI)
+│
+├── pages/
+│   ├── trips.html             (Página de gestión de viajes)
+│   ├── drivers.html           (Página de gestión de conductores)
+│   ├── clients.html           (Página de gestión de clientes)
+│   └── reports.html           (Página de reportes y BI)
+│
+├── README.md                  (Documentación general)
+└── AUTENTICACION.md           (Documentación de autenticación)
+
+========================================
+SISTEMA DE AUTENTICACION
+========================================
+
+3 Roles Disponibles:
+
+1. ADMIN (admin@pacificcoast.com / admin123)
+   └─> index.html (Dashboard completo)
+   
+2. DRIVER (driver@pacificcoast.com / driver123)
+   └─> driver-panel.html (Panel del conductor)
+   
+3. PASSENGER (passenger@pacificcoast.com / pass123)
+   └─> passenger-panel.html (Panel del pasajero)
+
+Características:
+✓ Protección de rutas por rol
+✓ Redirección automática según rol
+✓ Persistencia en LocalStorage
+✓ Logout funcional
+✓ UI actualizada con nombre del usuario
+
+========================================
+CAPAS ARQUITECTONICAS
+========================================
+
+1. PRESENTACION (HTML)
+   - Componentes visuales
+   - Estructura semántica
+   - Responsive design
+
+2. ESTILOS (CSS Modular)
+   - variables.css: tema centralizado
+   - base.css: reset y globales
+   - components.css: reutilizables
+   - dashboard.css: específicos dashboard
+
+3. LOGICA (JavaScript)
+   - auth.js: autenticación y roles
+   - data.js: gestión de datos
+   - utils.js: funciones compartidas
+   - excel.js: exportación
+   - Módulos por página
+
+4. DATOS (LocalStorage)
+   - auth_user: usuario logueado
+   - trips: historial de viajes
+   - drivers: datos de conductores
+   - clients: datos de clientes
+
+========================================
+FUNCIONALIDADES
+========================================
+
+DASHBOARD ADMIN:
+✓ KPIs en tiempo real
+✓ Gráficos dinámicos
+✓ Monitoreo de viajes
+✓ Gestión de conductores
+✓ Gestión de clientes
+✓ Reportes exportables a Excel
+✓ Análisis de negocio (BI)
+
+PANEL CONDUCTOR:
+✓ Vista de viajes asignados
+✓ Historial de ganancias
+✓ Calificaciones
+✓ Status en tiempo real
+
+PANEL PASAJERO:
+✓ Reserva de viajes
+✓ Historial de viajes
+✓ Calificar conductores
+✓ Seguimiento de viajes
+
+SEGURIDAD:
+✓ Autenticación por email/password
+✓ Protección de rutas
+✓ Control de acceso por rol
+✓ Sesión persistente
+
+========================================
+FLUJO DE USUARIO
+========================================
+
+1. Accede a landing.html (pública)
+2. Hace click en "Login"
+3. Llega a login.html
+4. Selecciona un usuario demo O ingresa credenciales
+5. Valida credenciales con AUTH.login()
+6. Se guarda en localStorage
+7. Redirige a index.html
+8. AUTH.redirectByRole() redirige según rol:
+   - Admin → index.html (dashboard)
+   - Driver → driver-panel.html
+   - Passenger → passenger-panel.html
+9. Si intenta acceder a ruta no autorizada, redirige a su panel
+
+========================================
+COMO USAR
+========================================
+
+Iniciar sesión como ADMIN:
+1. Click en botón de login
+2. Ingresa: admin@pacificcoast.com / admin123
+3. O click en botón "Admin (Dashboard)"
+4. Ves el dashboard completo
+
+Iniciar sesión como CONDUCTOR:
+1. Click en botón de login
+2. Ingresa: driver@pacificcoast.com / driver123
+3. O click en botón "Conductor"
+4. Ves el panel del conductor
+
+Iniciar sesión como PASAJERO:
+1. Click en botón de login
+2. Ingresa: passenger@pacificcoast.com / pass123
+3. O click en botón "Pasajero"
+4. Ves el panel del pasajero
+
+Logout:
+1. Click en icono de logout (lado de nombre de usuario)
+2. Se limpia la sesión
+3. Redirige a landing.html
+
+========================================
+PROXIMAS MEJORAS
+========================================
+
+- Hashear contraseñas con bcrypt
+- Agregar validación de email
+- Implementar recuperación de contraseña
+- Agregar 2FA (autenticación de dos factores)
+- Conectar a base de datos real (Supabase)
+- Implementar notificaciones en tiempo real
+- Agregar pruebas unitarias
+- Mejorar UX del panel de conductor y pasajero
+
+========================================

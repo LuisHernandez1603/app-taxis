@@ -49,7 +49,7 @@
 
       <!-- Desktop Navigation -->
       <nav class="nav-desktop">
-        <a href="index.html" class="nav-link">INICIO</a>
+        <a href="#" class="nav-link" id="initBtn">INICIO</a>
         <a href="about.html" class="nav-link">NOSOTROS</a>
         <a href="#servicios" class="nav-link">SERVICIOS</a>
         <a href="login.html" class="btn btn-outline" id="loginBtn">
@@ -535,6 +535,19 @@
     </div>
   </div>
 
+  <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    // Botón Inicio redirige según autenticación
+    document.getElementById('initBtn')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const user = AUTH.getCurrentUser();
+      if (!user) {
+        window.location.href = 'login.html';
+      } else {
+        AUTH.redirectByRole();
+      }
+    });
+  </script>
 </body>
 </html>
