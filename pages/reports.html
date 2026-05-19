@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes e Inteligencia de Negocio - Pacific Coast Taxi</title>
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="logo">PCT</h1>
+        <p class="logo-text">Pacific Coast Taxi</p>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="./trips.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>Viajes</span>
+        </a>
+        <a href="./drivers.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Conductores</span>
+        </a>
+        <a href="./clients.html" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          <span>Clientes</span>
+        </a>
+        <a href="./reports.html" class="nav-link active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="2" x2="12" y2="22"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <span>Reportes</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <h2>Reportes e Inteligencia de Negocio</h2>
+          <p class="breadcrumb">Dashboard > Reportes</p>
+        </div>
+        <div class="header-right">
+          <div class="user-info">
+            <div class="user-avatar">Admin</div>
+            <div>
+              <p class="user-name">Administrador</p>
+              <p class="user-status">En línea</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="page-content">
+        <!-- KPIs Principales -->
+        <div class="section-header">
+          <h3>KPIs - Indicadores Clave de Desempeño</h3>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="2" x2="12" y2="22"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Ingresos Totales (Mes)</p>
+              <p class="stat-value" id="biTotalRevenue">$0</p>
+              <p class="stat-change positive">↑ 12.5% vs. mes anterior</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 17"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Crecimiento Mensual</p>
+              <p class="stat-value" id="biGrowth">0%</p>
+              <p class="stat-change positive">Tendencia positiva</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Promedio por Viaje</p>
+              <p class="stat-value" id="biAvgFare">$0</p>
+              <p class="stat-change positive">↑ 5.2% respecto a promedio</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <p class="stat-label">Tasa de Utilización</p>
+              <p class="stat-value" id="biUtilization">0%</p>
+              <p class="stat-change positive">Óptimo rendimiento</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="charts-grid">
+          <div class="card">
+            <div class="card-header">
+              <h4>Ingresos por Día (Últimos 7 días)</h4>
+            </div>
+            <div class="chart-container">
+              <svg id="revenueChart" style="width: 100%; height: 250px;"></svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h4>Viajes por Hora (Hoy)</h4>
+            </div>
+            <div class="chart-container">
+              <svg id="tripsChart" style="width: 100%; height: 250px;"></svg>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h4>Top 5 Destinos Populares</h4>
+            </div>
+            <div class="chart-container">
+              <div id="topDestinations" style="padding: 1rem;"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h4>Top 5 Conductores por Ingresos</h4>
+            </div>
+            <div class="chart-container">
+              <div id="topDrivers" style="padding: 1rem;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exportar Reportes -->
+        <div class="section-header" style="margin-top: 2rem;">
+          <h3>Exportar Reportes</h3>
+        </div>
+
+        <div class="reports-grid">
+          <div class="card">
+            <div class="card-body">
+              <div class="report-icon blue">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                  <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+              </div>
+              <h4>Reporte de Viajes</h4>
+              <p>Detalle completo de todos los viajes realizados en el período seleccionado.</p>
+              <div class="date-range-picker">
+                <input type="date" id="tripsStartDate" class="form-input">
+                <span>a</span>
+                <input type="date" id="tripsEndDate" class="form-input">
+              </div>
+              <button class="btn btn-primary btn-full" onclick="exportTripsReport()">Descargar Excel</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="report-icon green">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="2" x2="12" y2="22"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h4>Reporte de Ingresos</h4>
+              <p>Análisis detallado de ingresos por día, conductor y tipo de servicio.</p>
+              <div class="date-range-picker">
+                <input type="date" id="revenueStartDate" class="form-input">
+                <span>a</span>
+                <input type="date" id="revenueEndDate" class="form-input">
+              </div>
+              <button class="btn btn-primary btn-full" onclick="exportRevenueReport()">Descargar Excel</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="report-icon purple">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <h4>Reporte de Conductores</h4>
+              <p>Rendimiento, ganancias y desempeño de cada conductor.</p>
+              <div class="date-range-picker">
+                <input type="date" id="driversStartDate" class="form-input">
+                <span>a</span>
+                <input type="date" id="driversEndDate" class="form-input">
+              </div>
+              <button class="btn btn-primary btn-full" onclick="exportDriversReport()">Descargar Excel</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="report-icon orange">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h4>Reporte de Clientes</h4>
+              <p>Análisis de clientes, frecuencia de viajes y gastos totales.</p>
+              <div class="date-range-picker">
+                <input type="date" id="clientsStartDate" class="form-input">
+                <span>a</span>
+                <input type="date" id="clientsEndDate" class="form-input">
+              </div>
+              <button class="btn btn-primary btn-full" onclick="exportClientsReport()">Descargar Excel</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla Resumen Mensual -->
+        <div class="section-header" style="margin-top: 2rem;">
+          <h3>Resumen Mensual</h3>
+        </div>
+
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Métrica</th>
+                  <th>Mes Actual</th>
+                  <th>Mes Anterior</th>
+                  <th>Variación</th>
+                  <th>Tendencia</th>
+                </tr>
+              </thead>
+              <tbody id="summarytable">
+                <tr>
+                  <td>Ingresos Totales</td>
+                  <td id="summary-revenue">$0</td>
+                  <td id="summary-revenue-prev">$0</td>
+                  <td id="summary-revenue-var">0%</td>
+                  <td><span class="trend positive">↑</span></td>
+                </tr>
+                <tr>
+                  <td>Total de Viajes</td>
+                  <td id="summary-trips">0</td>
+                  <td id="summary-trips-prev">0</td>
+                  <td id="summary-trips-var">0%</td>
+                  <td><span class="trend positive">↑</span></td>
+                </tr>
+                <tr>
+                  <td>Clientes Activos</td>
+                  <td id="summary-clients">0</td>
+                  <td id="summary-clients-prev">0</td>
+                  <td id="summary-clients-var">0%</td>
+                  <td><span class="trend positive">↑</span></td>
+                </tr>
+                <tr>
+                  <td>Conductores Activos</td>
+                  <td id="summary-drivers">0</td>
+                  <td id="summary-drivers-prev">0</td>
+                  <td id="summary-drivers-var">0%</td>
+                  <td><span class="trend positive">↑</span></td>
+                </tr>
+                <tr>
+                  <td>Viaje Promedio</td>
+                  <td id="summary-avg-fare">$0</td>
+                  <td id="summary-avg-fare-prev">$0</td>
+                  <td id="summary-avg-fare-var">0%</td>
+                  <td><span class="trend positive">↑</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/excel.js"></script>
+  <script src="../js/pages/reports.js"></script>
+</body>
+</html>
