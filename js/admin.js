@@ -257,49 +257,63 @@ function loadTrips() {
   const tbody = document.getElementById('tripsTableBody');
   const noData = document.getElementById('noTripsData');
   
-  if (!tbody) return;
+  console.log("[v0] loadTrips - trips:", trips);
+  console.log("[v0] loadTrips - tbody:", tbody);
+  console.log("[v0] loadTrips - noData:", noData);
+  
+  if (!tbody) {
+    console.log("[v0] loadTrips - tbody not found");
+    return;
+  }
   
   if (trips.length === 0) {
-    noData.style.display = 'flex';
+    console.log("[v0] loadTrips - no trips, showing empty message");
+    if (noData) noData.style.display = 'flex';
     tbody.parentElement.style.display = 'none';
     return;
   }
   
-  noData.style.display = 'none';
+  console.log("[v0] loadTrips - rendering " + trips.length + " trips");
+  if (noData) noData.style.display = 'none';
   tbody.parentElement.style.display = 'table';
   
-  tbody.innerHTML = trips.map(trip => `
-    <tr>
-      <td><span class="trip-code">${trip.id}</span></td>
-      <td>
-        <div class="client-info">
-          <span class="client-name">${trip.name}</span>
-          <span class="client-phone">${trip.phone}</span>
-        </div>
-      </td>
-      <td>${trip.origin}</td>
-      <td>${trip.destination}</td>
-      <td>${formatDate(trip.date)} ${trip.time}</td>
-      <td>$${trip.price.toFixed(2)}</td>
-      <td><span class="status-badge ${trip.status}">${getStatusLabel(trip.status)}</span></td>
-      <td>
-        <div class="table-actions">
-          <button class="btn-icon" onclick="editTrip('${trip.id}')" title="Editar">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-            </svg>
-          </button>
-          <button class="btn-icon danger" onclick="deleteTrip('${trip.id}')" title="Eliminar">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="3 6 5 6 21 6"/>
-              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-            </svg>
-          </button>
-        </div>
-      </td>
-    </tr>
-  `).join('');
+  try {
+    tbody.innerHTML = trips.map(trip => `
+      <tr>
+        <td><span class="trip-code">${trip.id}</span></td>
+        <td>
+          <div class="client-info">
+            <span class="client-name">${trip.name}</span>
+            <span class="client-phone">${trip.phone}</span>
+          </div>
+        </td>
+        <td>${trip.origin}</td>
+        <td>${trip.destination}</td>
+        <td>${formatDate(trip.date)} ${trip.time}</td>
+        <td>$${trip.price.toFixed(2)}</td>
+        <td><span class="status-badge ${trip.status}">${getStatusLabel(trip.status)}</span></td>
+        <td>
+          <div class="table-actions">
+            <button class="btn-icon" onclick="editTrip('${trip.id}')" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+              </svg>
+            </button>
+            <button class="btn-icon danger" onclick="deleteTrip('${trip.id}')" title="Eliminar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+    console.log("[v0] loadTrips - HTML rendered successfully");
+  } catch (error) {
+    console.error("[v0] loadTrips - Error rendering HTML:", error);
+  }
   
   // Search functionality
   const searchInput = document.getElementById('tripSearch');
@@ -415,15 +429,23 @@ function loadDrivers() {
   const grid = document.getElementById('driversGrid');
   const noData = document.getElementById('noDriversData');
   
-  if (!grid) return;
+  console.log("[v0] loadDrivers - drivers:", drivers);
+  console.log("[v0] loadDrivers - grid:", grid);
+  
+  if (!grid) {
+    console.log("[v0] loadDrivers - grid not found");
+    return;
+  }
   
   if (drivers.length === 0) {
-    noData.style.display = 'flex';
+    console.log("[v0] loadDrivers - no drivers");
+    if (noData) noData.style.display = 'flex';
     grid.style.display = 'none';
     return;
   }
   
-  noData.style.display = 'none';
+  console.log("[v0] loadDrivers - rendering " + drivers.length + " drivers");
+  if (noData) noData.style.display = 'none';
   grid.style.display = 'grid';
   
   grid.innerHTML = drivers.map(driver => `
