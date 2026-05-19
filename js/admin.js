@@ -30,10 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Sample Data (for demo purposes)
 // ========================================
 function getSampleTrips() {
-  const stored = localStorage.getItem('trips');
-  if (stored) return JSON.parse(stored);
-  
-  // Generate sample data
+  // Siempre generar datos de muestra (para que siempre haya datos)
   const sampleTrips = [
     {
       id: 'PCT-A1B2C3',
@@ -119,22 +116,21 @@ function getSampleTrips() {
       date: '2024-01-20',
       time: '11:00',
       passengers: 5,
-      serviceType: 'turistico',
+      serviceType: 'interdepartamental',
       price: 95.00,
-      status: 'pendiente',
-      driverId: null,
-      createdAt: '2024-01-19T11:15:00'
+      status: 'en_curso',
+      driverId: 'DRV-002',
+      createdAt: '2024-01-20T08:15:00'
     }
   ];
   
+  // Guardar en localStorage para persistencia
   localStorage.setItem('trips', JSON.stringify(sampleTrips));
   return sampleTrips;
 }
 
 function getSampleDrivers() {
-  const stored = localStorage.getItem('drivers');
-  if (stored) return JSON.parse(stored);
-  
+  // Siempre generar datos de muestra
   const sampleDrivers = [
     {
       id: 'DRV-001',
@@ -147,16 +143,16 @@ function getSampleDrivers() {
       status: 'activo',
       rating: 4.8,
       totalTrips: 45,
-      totalEarnings: 1250.00,
-      createdAt: '2023-06-15'
+      totalEarnings: 1350.00,
+      createdAt: '2023-03-15'
     },
     {
       id: 'DRV-002',
-      name: 'Miguel Rodriguez',
+      name: 'Maria Elena Rodriguez',
       phone: '+505 7777-2222',
-      email: 'miguel.rodriguez@email.com',
+      email: 'maria.rodriguez@email.com',
       license: 'LIC-2024-002',
-      vehicle: 'Nissan Sentra 2019',
+      vehicle: 'Honda Civic 2022',
       plate: 'M-234-567',
       status: 'activo',
       rating: 4.9,
@@ -178,6 +174,10 @@ function getSampleDrivers() {
       totalEarnings: 980.00,
       createdAt: '2023-08-10'
     }
+  ];
+  
+  localStorage.setItem('drivers', JSON.stringify(sampleDrivers));
+  return sampleDrivers;
   ];
   
   localStorage.setItem('drivers', JSON.stringify(sampleDrivers));
@@ -257,23 +257,14 @@ function loadTrips() {
   const tbody = document.getElementById('tripsTableBody');
   const noData = document.getElementById('noTripsData');
   
-  console.log("[v0] loadTrips - trips:", trips);
-  console.log("[v0] loadTrips - tbody:", tbody);
-  console.log("[v0] loadTrips - noData:", noData);
-  
-  if (!tbody) {
-    console.log("[v0] loadTrips - tbody not found");
-    return;
-  }
+  if (!tbody) return;
   
   if (trips.length === 0) {
-    console.log("[v0] loadTrips - no trips, showing empty message");
     if (noData) noData.style.display = 'flex';
     tbody.parentElement.style.display = 'none';
     return;
   }
   
-  console.log("[v0] loadTrips - rendering " + trips.length + " trips");
   if (noData) noData.style.display = 'none';
   tbody.parentElement.style.display = 'table';
   
@@ -310,9 +301,8 @@ function loadTrips() {
         </td>
       </tr>
     `).join('');
-    console.log("[v0] loadTrips - HTML rendered successfully");
   } catch (error) {
-    console.error("[v0] loadTrips - Error rendering HTML:", error);
+    console.error("Error renderizando viajes:", error);
   }
   
   // Search functionality
@@ -429,22 +419,14 @@ function loadDrivers() {
   const grid = document.getElementById('driversGrid');
   const noData = document.getElementById('noDriversData');
   
-  console.log("[v0] loadDrivers - drivers:", drivers);
-  console.log("[v0] loadDrivers - grid:", grid);
-  
-  if (!grid) {
-    console.log("[v0] loadDrivers - grid not found");
-    return;
-  }
+  if (!grid) return;
   
   if (drivers.length === 0) {
-    console.log("[v0] loadDrivers - no drivers");
     if (noData) noData.style.display = 'flex';
     grid.style.display = 'none';
     return;
   }
   
-  console.log("[v0] loadDrivers - rendering " + drivers.length + " drivers");
   if (noData) noData.style.display = 'none';
   grid.style.display = 'grid';
   
