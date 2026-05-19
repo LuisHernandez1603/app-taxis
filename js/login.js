@@ -102,7 +102,7 @@ function initAdminLogin() {
       localStorage.setItem('adminName', 'Administrador');
       
       // Redirect to admin panel
-      window.location.href = 'admin.html';
+      window.location.href = 'admin-dashboard.html';
     });
   }
 }
