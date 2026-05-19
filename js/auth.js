@@ -1,14 +1,13 @@
 /**
- * Modulo de Autenticacion
- * Gestiona login, logout y verificacion de roles
+ * Modulo de Autenticacion Simplificado
+ * Gestiona login y logout basico
  */
 
 const AUTH = {
   // Usuarios demo
   users: {
-    'admin@pacificcoast.com': { password: 'admin123', role: 'admin', name: 'Admin Panel' },
-    'driver@pacificcoast.com': { password: 'driver123', role: 'driver', name: 'Juan Mendoza' },
-    'passenger@pacificcoast.com': { password: 'pass123', role: 'passenger', name: 'Carlos' }
+    'admin@pacificcoast.com': { password: 'admin123', name: 'Administrador' },
+    'user@pacificcoast.com': { password: 'user123', name: 'Usuario' }
   },
 
   // Login
@@ -19,12 +18,11 @@ const AUTH = {
     
     localStorage.setItem('auth_user', JSON.stringify({
       email: email,
-      role: user.role,
       name: user.name,
       loginTime: new Date().toISOString()
     }));
     
-    return { success: true, user: { email, role: user.role, name: user.name } };
+    return { success: true, user: { email, name: user.name } };
   },
 
   // Logout
@@ -43,45 +41,6 @@ const AUTH = {
     return this.getCurrentUser() !== null;
   },
 
-  // Verificar rol
-  hasRole: function(role) {
-    const user = this.getCurrentUser();
-    return user && user.role === role;
-  },
-
-  // Redirigir segun rol
-  redirectByRole: function() {
-    const user = this.getCurrentUser();
-    if (!user) {
-      // Si no esta autenticado y esta en pagina protegida, redirige a login
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      if (['admin-dashboard.html', 'driver-panel.html', 'passenger-panel.html'].includes(currentPage)) {
-        window.location.href = 'login.html';
-      }
-      return;
-    }
-
-    // Definir rutas por rol
-    const routes = {
-      admin: 'admin-dashboard.html',
-      driver: 'driver-panel.html',
-      passenger: 'passenger-panel.html'
-    };
-
-    // Si intenta acceder a una ruta no autorizada, redirigir a su dashboard
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    if (currentPage === 'admin-dashboard.html' && user.role !== 'admin') {
-      window.location.href = routes[user.role];
-    }
-    if (currentPage === 'driver-panel.html' && user.role !== 'driver') {
-      window.location.href = routes[user.role];
-    }
-    if (currentPage === 'passenger-panel.html' && user.role !== 'passenger') {
-      window.location.href = routes[user.role];
-    }
-  },
-
   // Inicializar UI de autenticacion
   initUI: function() {
     const user = this.getCurrentUser();
@@ -91,17 +50,6 @@ const AUTH = {
     // Actualizar nombre de usuario en el header
     const userNameEl = document.getElementById('userName');
     if (userNameEl) userNameEl.textContent = user.name;
-
-    // Actualizar rol en el header
-    const userRoleEl = document.getElementById('userRole');
-    if (userRoleEl) {
-      const roleText = {
-        admin: 'Administrador',
-        driver: 'Conductor',
-        passenger: 'Pasajero'
-      };
-      userRoleEl.textContent = roleText[user.role] || user.role;
-    }
 
     // Configurar logout
     const logoutBtn = document.getElementById('logoutBtn');
@@ -114,8 +62,8 @@ const AUTH = {
   }
 };
 
-// Ejecutar redireccion de rol cuando carga la pagina
+// Ejecutar inicializacion cuando carga la pagina
 document.addEventListener('DOMContentLoaded', () => {
-  AUTH.redirectByRole();
   AUTH.initUI();
 });
+

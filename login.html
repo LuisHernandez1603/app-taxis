@@ -245,16 +245,12 @@
 
     <div class="demo-users">
       <button class="demo-btn" type="button" data-email="admin@pacificcoast.com" data-password="admin123">
-        <strong>👨‍💼 Administrador</strong>
+        <strong>Administrador</strong>
         <span>admin@pacificcoast.com</span>
       </button>
-      <button class="demo-btn" type="button" data-email="driver@pacificcoast.com" data-password="driver123">
-        <strong>🚗 Conductor</strong>
-        <span>driver@pacificcoast.com</span>
-      </button>
-      <button class="demo-btn" type="button" data-email="passenger@pacificcoast.com" data-password="pass123">
-        <strong>👤 Pasajero</strong>
-        <span>passenger@pacificcoast.com</span>
+      <button class="demo-btn" type="button" data-email="user@pacificcoast.com" data-password="user123">
+        <strong>Usuario</strong>
+        <span>user@pacificcoast.com</span>
       </button>
     </div>
 
@@ -269,13 +265,7 @@
     window.addEventListener('load', () => {
       const user = AUTH.getCurrentUser();
       if (user) {
-        // Redirigir al dashboard segun el rol
-        const routes = {
-          admin: 'admin-dashboard.html',
-          driver: 'driver-panel.html',
-          passenger: 'passenger-panel.html'
-        };
-        window.location.href = routes[user.role] || 'index.html';
+        window.location.href = 'admin-dashboard.html';
       }
     });
 
@@ -289,13 +279,7 @@
       const result = AUTH.login(email, password);
       
       if (result.success) {
-        // Redirigir al dashboard segun el rol
-        const routes = {
-          admin: 'admin-dashboard.html',
-          driver: 'driver-panel.html',
-          passenger: 'passenger-panel.html'
-        };
-        window.location.href = routes[result.user.role] || 'index.html';
+        window.location.href = 'admin-dashboard.html';
       } else {
         errorEl.textContent = result.error;
         errorEl.classList.add('show');
