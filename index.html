@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacific Coast Taxi - Servicio de Transporte en Nicaragua</title>
+  <meta name="description" content="Tu servicio de transporte de confianza en la costa del Pacifico de Nicaragua. Reservas rapidas, conductores confiables y atencion inmediata.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <span class="logo-text">PACIFIC COAST TAXI</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">INICIO</a>
+        <a href="about.html" class="nav-link">NOSOTROS</a>
+        <a href="#servicios" class="nav-link">SERVICIOS</a>
+        <a href="login.html" class="btn btn-outline" id="loginBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+            <polyline points="10 17 15 12 10 7"/>
+            <line x1="15" y1="12" x2="3" y2="12"/>
+          </svg>
+          INICIAR SESION
+        </a>
+        <a href="trips.html" class="btn btn-primary">RESERVA TU VIAJE</a>
+      </nav>
+
+      <!-- User Menu (hidden by default) -->
+      <div class="user-menu" id="userMenu" style="display: none;">
+        <button class="btn btn-outline user-btn" id="userMenuBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span id="userName">Mi Cuenta</span>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="trips.html" class="dropdown-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/>
+              <path d="M9 17h6"/>
+              <circle cx="17" cy="17" r="2"/>
+            </svg>
+            Mis Viajes
+          </a>
+          <button class="dropdown-item" id="reviewBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star-icon">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Dejar Resena
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item logout" id="logoutBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Cerrar Sesion
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menuIcon">
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="closeIcon" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" id="mobileNav">
+      <a href="index.html" class="nav-link-mobile">INICIO</a>
+      <a href="about.html" class="nav-link-mobile">NOSOTROS</a>
+      <a href="#servicios" class="nav-link-mobile">SERVICIOS</a>
+      <a href="login.html" class="btn btn-outline btn-mobile" id="loginBtnMobile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        INICIAR SESION
+      </a>
+      <a href="trips.html" class="btn btn-primary btn-mobile">RESERVA TU VIAJE</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sddefault-s67OlZY118IKdFEWF1WRgizL15PdJv.jpg" alt="San Juan del Sur, Nicaragua" crossorigin="anonymous">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span>VIAJA SEGURO</span>
+          <span>POR LA COSTA DEL</span>
+          <span>PACIFICO</span>
+          <span class="highlight">NICARAGUENSE</span>
+        </h1>
+        <p class="hero-description">
+          RESERVAS RAPIDAS, CONDUCTORES CONFIABLES Y ATENCION INMEDIATA.
+        </p>
+        <div class="hero-buttons">
+          <a href="trips.html" class="btn btn-primary btn-lg">RESERVAR AHORA</a>
+          <a href="#servicios" class="btn btn-outline btn-lg">VER SERVICIOS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="servicios" class="services">
+    <div class="services-bar"></div>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">NUESTROS SERVICIOS DE TRANSPORTE</h2>
+        <p class="section-subtitle">OPCIONES SEGURAS Y COMODAS PARA CLIENTES NACIONALES Y EXTRANJEROS.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/transparent-Photoroom%20%284%29-GCgWzYLeTOHVONJ3lvicSwkhp1XsZx.png" alt="Viajeros" crossorigin="anonymous">
+          </div>
+          <h3 class="service-title">VIAJES INTERDEPARTAMENTALES</h3>
+          <p class="service-description">RESERVAS SEGURAS HACIA OTROS DESTINOS DE NICARAGUA.</p>
+          <a href="trips.html?service=interdepartamental" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/>
+              <path d="M9 17h6"/>
+              <circle cx="17" cy="17" r="2"/>
+            </svg>
+            RESERVAR AHORA
+          </a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/transparent-Photoroom%20%284%29-GCgWzYLeTOHVONJ3lvicSwkhp1XsZx.png" alt="Viajeros" crossorigin="anonymous">
+          </div>
+          <h3 class="service-title">SERVICIO TURISTICO</h3>
+          <p class="service-description">TRASLADOS COMODOS HACIA PLAYAS, HOTELES Y DESTINOS TURISTICOS.</p>
+          <a href="trips.html?service=turistico" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/>
+              <path d="M9 17h6"/>
+              <circle cx="17" cy="17" r="2"/>
+            </svg>
+            RESERVAR AHORA
+          </a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/transparent-Photoroom%20%284%29-GCgWzYLeTOHVONJ3lvicSwkhp1XsZx.png" alt="Viajeros" crossorigin="anonymous">
+          </div>
+          <h3 class="service-title">TRASLADOS LOCALES</h3>
+          <p class="service-description">MOVILIDAD RAPIDA DENTRO DE RIVAS CON ATENCION INMEDIATA.</p>
+          <a href="trips.html?service=local" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/>
+              <path d="M9 17h6"/>
+              <circle cx="17" cy="17" r="2"/>
+            </svg>
+            RESERVAR AHORA
+          </a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/transparent-Photoroom%20%284%29-GCgWzYLeTOHVONJ3lvicSwkhp1XsZx.png" alt="Viajeros" crossorigin="anonymous">
+          </div>
+          <h3 class="service-title">RECOGIDA PROGRAMADA</h3>
+          <p class="service-description">DESDE HOTELES, TERMINALES O UBICACION ACORDADA.</p>
+          <a href="trips.html?service=programada" class="btn btn-primary btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/>
+              <path d="M9 17h6"/>
+              <circle cx="17" cy="17" r="2"/>
+            </svg>
+            RESERVAR AHORA
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title text-primary">TU SEGURIDAD ES NUESTRA PRIORIDAD</h2>
+        <p class="section-subtitle text-gray">LA SATISFACCION DE NUESTROS CLIENTES ES NUESTRA MEJOR REFERENCIA</p>
+      </div>
+      <div class="testimonials-slider">
+        <button class="slider-btn slider-prev" id="prevBtn" aria-label="Previous testimonial">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+        <div class="testimonials-track" id="testimonialsTrack">
+          <!-- Testimonials will be inserted by JavaScript -->
+        </div>
+        <button class="slider-btn slider-next" id="nextBtn" aria-label="Next testimonial">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="testimonials-dots" id="testimonialsDots"></div>
+    </div>
+    <div class="testimonials-bar"></div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title text-primary">PREGUNTAS FRECUENTES</h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>COMO PUEDO RESERVAR UN VIAJE?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Puede reservar su viaje por el asistente virtual o mediante nuestro formulario en linea indicando origen, destino y horario deseado.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>ATIENDEN TRASLADOS FUERA DE RIVAS?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Si, realizamos traslados a cualquier destino de Nicaragua incluyendo Managua, Granada, Leon, Masaya y mas. Consulte nuestras tarifas para viajes interdepartamentales.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>ES NECESARIO REALIZAR DEPOSITO PARA VIAJES LARGOS?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Para viajes interdepartamentales o de larga distancia, solicitamos un deposito del 50% para confirmar la reserva. El resto se paga al finalizar el servicio.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>PUEDEN RECOGERME EN HOTELES, TERMINALES O AEROPUERTOS?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Por supuesto, ofrecemos servicio de recogida en hoteles, terminales de buses, aeropuertos y cualquier ubicacion acordada dentro de nuestra area de cobertura.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>QUE METODOS DE PAGO ACEPTAN?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Aceptamos efectivo en cordobas y dolares, transferencias bancarias, y pagos con tarjeta de credito/debito. Tambien aceptamos pagos digitales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Company Info -->
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                <circle cx="7" cy="17" r="2"/>
+                <path d="M9 17h6"/>
+                <circle cx="17" cy="17" r="2"/>
+              </svg>
+            </div>
+            <span>PACIFIC COAST TAXI</span>
+          </div>
+          <p class="footer-description">
+            Tu servicio de transporte de confianza en la costa del Pacifico de Nicaragua. Viaja seguro con nosotros.
+          </p>
+          <div class="social-links">
+            <a href="https://facebook.com/pacificcoasttaxi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/pacificcoasttaxi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@pacificcoasttaxi" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3 class="footer-title">Enlaces Rapidos</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="trips.html">Reservar Viaje</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-section">
+          <h3 class="footer-title">Nuestros Servicios</h3>
+          <ul class="footer-links">
+            <li>Viajes Interdepartamentales</li>
+            <li>Servicio Turistico</li>
+            <li>Traslados Locales</li>
+            <li>Recogida Programada</li>
+            <li>Tours Privados</li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h3 class="footer-title">Contacto</h3>
+          <ul class="footer-contact">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Rivas, Nicaragua<br>Costa del Pacifico</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <a href="contact.html">+505 7750-2626</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>info@pacificcoasttaxi.com</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>24/7 Disponible</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="whatsapp-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Escribenos
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Pacific Coast Taxi. Todos los derechos reservados.</p>
+        <div class="footer-legal">
+          <a href="#">Politica de Privacidad</a>
+          <a href="#">Terminos y Condiciones</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Review Modal -->
+  <div class="modal" id="reviewModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="closeReviewModal">&times;</button>
+      <h2 class="modal-title">Dejar una Resena</h2>
+      <form id="reviewForm">
+        <div class="form-group">
+          <label>Tu calificacion</label>
+          <div class="star-rating" id="starRating">
+            <button type="button" class="star" data-rating="1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </button>
+            <button type="button" class="star" data-rating="2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </button>
+            <button type="button" class="star" data-rating="3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </button>
+            <button type="button" class="star" data-rating="4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </button>
+            <button type="button" class="star" data-rating="5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reviewComment">Tu comentario</label>
+          <textarea id="reviewComment" rows="4" placeholder="Cuentanos tu experiencia..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Enviar Resena</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ChatBot -->
+  <div class="chatbot" id="chatbot">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Abrir chat">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Pacific Coast Taxi</h4>
+          <p>Asistente Virtual</p>
+        </div>
+        <button class="chatbot-close" id="chatbotClose" aria-label="Cerrar chat">&times;</button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chat-message bot">
+          <p>Hola! Soy el asistente virtual de Pacific Coast Taxi. Como puedo ayudarte hoy?</p>
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+        <button id="chatSend" aria-label="Enviar mensaje">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

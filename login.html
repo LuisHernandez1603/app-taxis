@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesion - Pacific Coast Taxi</title>
+  <meta name="description" content="Inicia sesion en tu cuenta de Pacific Coast Taxi.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+  <div class="login-pattern"></div>
+  
+  <div class="login-container">
+    <!-- Logo -->
+    <div class="login-logo">
+      <a href="index.html">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <span>PACIFIC COAST TAXI</span>
+      </a>
+    </div>
+
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Bienvenido</h1>
+        <p>Selecciona tu tipo de cuenta para iniciar sesion</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="login-tabs">
+        <button class="login-tab active" data-tab="passenger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span class="tab-label">Pasajero</span>
+        </button>
+        <button class="login-tab" data-tab="driver">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+          <span class="tab-label">Conductor</span>
+        </button>
+        <button class="login-tab" data-tab="admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span class="tab-label">Admin</span>
+        </button>
+      </div>
+
+      <!-- Login Content -->
+      <div class="login-content">
+        <!-- Passenger Tab -->
+        <div class="login-tab-content active" id="passengerTab">
+          <form id="passengerForm">
+            <div id="passengerError" class="form-error" style="display: none;"></div>
+            <div class="form-group">
+              <label for="passengerEmail">Correo Electronico</label>
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <input type="email" id="passengerEmail" name="email" placeholder="correo@ejemplo.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="passengerPassword">Contrasena</label>
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <input type="password" id="passengerPassword" name="password" placeholder="********" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="form-checkbox">
+                <input type="checkbox" name="remember">
+                <span>Recordarme</span>
+              </label>
+              <a href="#" class="form-link">Olvidaste tu contrasena?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Iniciar Sesion</button>
+          </form>
+        </div>
+
+        <!-- Driver Tab -->
+        <div class="login-tab-content" id="driverTab">
+          <div class="demo-box">
+            <h4>Conductores Demo Disponibles:</h4>
+            <p>Selecciona un conductor para acceder al panel</p>
+            <div class="demo-drivers">
+              <button type="button" class="demo-driver" data-email="jcmendez@pacificcoast.taxi" data-name="Juan Carlos Mendez">
+                <strong>Juan Carlos Mendez</strong>
+                <span>jcmendez@pacificcoast.taxi - Toyota Corolla</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="merodriguez@pacificcoast.taxi" data-name="Maria Elena Rodriguez">
+                <strong>Maria Elena Rodriguez</strong>
+                <span>merodriguez@pacificcoast.taxi - Honda Civic</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="rgonzalez@pacificcoast.taxi" data-name="Roberto Gonzalez">
+                <strong>Roberto Gonzalez</strong>
+                <span>rgonzalez@pacificcoast.taxi - Nissan Sentra</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="aplopez@pacificcoast.taxi" data-name="Ana Patricia Lopez">
+                <strong>Ana Patricia Lopez</strong>
+                <span>aplopez@pacificcoast.taxi - Hyundai Accent</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="camartinez@pacificcoast.taxi" data-name="Carlos Alberto Martinez">
+                <strong>Carlos Alberto Martinez</strong>
+                <span>camartinez@pacificcoast.taxi - Kia Rio</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Tab -->
+        <div class="login-tab-content" id="adminTab">
+          <div class="demo-box blue">
+            <h4>Acceso de Administrador</h4>
+            <p>Panel de control para gestionar el sistema</p>
+            <button type="button" class="demo-driver" id="adminLogin">
+              <strong>Administrador Principal</strong>
+              <span>admin@pacificcoast.taxi</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <div class="login-divider">
+          <span>O continua con</span>
+        </div>
+        <div class="social-buttons">
+          <button type="button" class="social-btn" id="googleLogin">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Google
+          </button>
+          <button type="button" class="social-btn" id="facebookLogin">
+            <svg width="20" height="20" fill="#1877F2" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Facebook
+          </button>
+        </div>
+        <p class="login-register">
+          No tienes una cuenta? <a href="register.html">Registrate aqui</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="login-back">
+      <a href="index.html">Volver al inicio</a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

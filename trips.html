@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar Viaje - Pacific Coast Taxi</title>
+  <meta name="description" content="Reserva tu viaje con Pacific Coast Taxi. Servicios de transporte seguro en Rivas, Nicaragua.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="trips-page">
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <span class="logo-text">PACIFIC COAST TAXI</span>
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="index.html" class="nav-link">INICIO</a>
+        <a href="about.html" class="nav-link">NOSOTROS</a>
+        <a href="contact.html" class="nav-link">CONTACTO</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="trips-header">
+        <h1 id="pageTitle">Centro de Viajes</h1>
+        <p id="pageSubtitle">Reserva un nuevo viaje o consulta tus viajes anteriores.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" id="tabsContainer">
+        <button class="tab-btn active" data-tab="book">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          Nuevo Viaje
+        </button>
+        <button class="tab-btn" data-tab="my-trips">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"/>
+            <line x1="8" y1="12" x2="21" y2="12"/>
+            <line x1="8" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="3.01" y2="6"/>
+            <line x1="3" y1="12" x2="3.01" y2="12"/>
+            <line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
+          Mis Viajes
+        </button>
+      </div>
+
+      <!-- Book Tab Content -->
+      <div class="tab-content active" id="bookTab">
+        <div class="booking-form-card">
+          <form id="bookingForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Nombre Completo *</label>
+                <input type="text" id="name" name="name" required placeholder="Tu nombre">
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefono / WhatsApp *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+505 0000-0000">
+              </div>
+              <div class="form-group">
+                <label for="origin">Origen *</label>
+                <input type="text" id="origin" name="origin" required placeholder="Direccion de recogida">
+              </div>
+              <div class="form-group">
+                <label for="destination">Destino *</label>
+                <input type="text" id="destination" name="destination" required placeholder="Direccion de destino">
+              </div>
+              <div class="form-group">
+                <label for="date">Fecha *</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="time">Hora *</label>
+                <input type="time" id="time" name="time" required>
+              </div>
+              <div class="form-group">
+                <label for="passengers">Pasajeros</label>
+                <select id="passengers" name="passengers">
+                  <option value="1">1 pasajero</option>
+                  <option value="2">2 pasajeros</option>
+                  <option value="3">3 pasajeros</option>
+                  <option value="4">4 pasajeros</option>
+                  <option value="5">5+ pasajeros</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="serviceType">Tipo de Servicio</label>
+                <select id="serviceType" name="serviceType">
+                  <option value="local">Traslado Local</option>
+                  <option value="turistico">Servicio Turistico</option>
+                  <option value="interdepartamental">Viaje Interdepartamental</option>
+                  <option value="programada">Recogida Programada</option>
+                </select>
+              </div>
+              <div class="form-group full-width">
+                <label for="notes">Notas Adicionales</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Equipaje, paradas adicionales, instrucciones especiales..."></textarea>
+              </div>
+            </div>
+
+            <div class="price-summary" id="priceSummary">
+              <div class="price-row">
+                <span>Tarifa base</span>
+                <span id="baseFare">$0.00</span>
+              </div>
+              <div class="price-row">
+                <span>Distancia estimada</span>
+                <span id="distance">-- km</span>
+              </div>
+              <div class="price-row total">
+                <span>Total Estimado</span>
+                <span id="totalPrice">$0.00 USD</span>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem;">
+                * El precio final sera confirmado por nuestro equipo
+              </p>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-full btn-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                  <circle cx="7" cy="17" r="2"/>
+                  <path d="M9 17h6"/>
+                  <circle cx="17" cy="17" r="2"/>
+                </svg>
+                Reservar Viaje
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- My Trips Tab Content -->
+      <div class="tab-content" id="myTripsTab">
+        <div class="trips-list" id="tripsList">
+          <!-- Trips will be loaded here -->
+        </div>
+        <div class="my-trips-empty" id="noTrips">
+          <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+          <h3>No tienes viajes registrados</h3>
+          <p>Reserva tu primer viaje y lo veras aqui.</p>
+          <button class="btn btn-primary" onclick="switchToBookTab()">Reservar Ahora</button>
+        </div>
+      </div>
+
+      <!-- Confirmation View (hidden by default) -->
+      <div id="confirmationView" style="display: none;">
+        <div class="confirmation-card">
+          <div class="confirmation-header">
+            <div class="confirmation-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h2>Viaje Reservado Exitosamente</h2>
+            <div class="confirmation-code" id="confirmationCode">PCT-XXXXXX</div>
+          </div>
+          <div class="confirmation-body">
+            <div class="confirmation-section">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Detalles del Viaje
+              </h3>
+              <div class="confirmation-details">
+                <div class="confirmation-detail">
+                  <span>Origen</span>
+                  <strong id="confOrigin">-</strong>
+                </div>
+                <div class="confirmation-detail">
+                  <span>Destino</span>
+                  <strong id="confDestination">-</strong>
+                </div>
+                <div class="confirmation-detail">
+                  <span>Fecha</span>
+                  <strong id="confDate">-</strong>
+                </div>
+                <div class="confirmation-detail">
+                  <span>Hora</span>
+                  <strong id="confTime">-</strong>
+                </div>
+                <div class="confirmation-detail">
+                  <span>Pasajeros</span>
+                  <strong id="confPassengers">-</strong>
+                </div>
+                <div class="confirmation-detail">
+                  <span>Servicio</span>
+                  <strong id="confService">-</strong>
+                </div>
+              </div>
+            </div>
+            <div class="confirmation-section">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Informacion de Contacto
+              </h3>
+              <div class="confirmation-details">
+                <div class="confirmation-detail">
+                  <span>Nombre</span>
+                  <strong id="confName">-</strong>
+                </div>
+                <div class="confirmation-detail">
+                  <span>Telefono</span>
+                  <strong id="confPhone">-</strong>
+                </div>
+              </div>
+            </div>
+            <div class="confirmation-section">
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                Precio Estimado
+              </h3>
+              <div class="confirmation-details">
+                <div class="confirmation-detail">
+                  <span>Total</span>
+                  <strong id="confPrice" style="font-size: 1.25rem; color: var(--secondary);">-</strong>
+                </div>
+              </div>
+            </div>
+            <div class="confirmation-actions">
+              <button class="btn btn-primary" onclick="newTrip()">Reservar Otro Viaje</button>
+              <button class="btn btn-outline" onclick="viewMyTrips()" style="border-color: var(--primary); color: var(--primary);">Ver Mis Viajes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top: 3rem;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; margin-top: 0;">
+        <p>&copy; <span id="currentYear"></span> Pacific Coast Taxi. Todos los derechos reservados.</p>
+        <a href="index.html" style="color: var(--secondary);">Volver al inicio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/trips.js"></script>
+</body>
+</html>
