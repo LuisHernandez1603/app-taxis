@@ -3,301 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Pacific Coast Taxi</title>
-  <meta name="description" content="Inicia sesión en tu cuenta de Pacific Coast Taxi">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  
-  <style>
-    body {
-      background: linear-gradient(135deg, #0a1628 0%, #111d32 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    .login-container {
-      background: #1a2d4a;
-      border-radius: 12px;
-      padding: 2.5rem;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    }
-
-    .login-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .login-logo {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .login-header h1 {
-      font-size: 1.75rem;
-      color: #f8fafc;
-      margin: 0 0 0.5rem 0;
-      font-weight: 700;
-    }
-
-    .login-header p {
-      color: #94a3b8;
-      font-size: 0.875rem;
-      margin: 0;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      color: #f8fafc;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #2a3f5f;
-      border-radius: 6px;
-      background: #111d32;
-      color: #f8fafc;
-      font-size: 0.875rem;
-      box-sizing: border-box;
-      transition: all 0.2s;
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: #102f63;
-      box-shadow: 0 0 0 3px rgba(16, 47, 99, 0.3);
-      background: #0f1e2e;
-    }
-
-    .form-group input::placeholder {
-      color: #64748b;
-    }
-
-    .error-message {
-      background: rgba(239, 68, 68, 0.1);
-      color: #fca5a5;
-      padding: 0.75rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      font-size: 0.875rem;
-      display: none;
-      border-left: 3px solid #ef4444;
-    }
-
-    .error-message.show {
-      display: block;
-    }
-
-    .login-btn {
-      width: 100%;
-      padding: 0.75rem;
-      background: #102f63;
-      color: #f8fafc;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.875rem;
-    }
-
-    .login-btn:hover {
-      background: #0a1f47;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(16, 47, 99, 0.2);
-    }
-
-    .login-btn:active {
-      transform: translateY(0);
-    }
-
-    .divider {
-      text-align: center;
-      margin: 1.5rem 0;
-      color: #94a3b8;
-      font-size: 0.875rem;
-    }
-
-    .divider::before {
-      content: '';
-      display: inline-block;
-      width: 40%;
-      height: 1px;
-      background: #2a3f5f;
-      margin-right: 0.5rem;
-    }
-
-    .divider::after {
-      content: '';
-      display: inline-block;
-      width: 40%;
-      height: 1px;
-      background: #2a3f5f;
-      margin-left: 0.5rem;
-    }
-
-    .demo-users {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-    }
-
-    .demo-btn {
-      padding: 0.75rem;
-      border: 1px solid #2a3f5f;
-      background: #111d32;
-      color: #f8fafc;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .demo-btn:hover {
-      background: #102f63;
-      color: #f8fafc;
-      border-color: #102f63;
-      transform: translateY(-2px);
-    }
-
-    .demo-btn strong {
-      font-weight: 600;
-    }
-
-    .demo-btn span {
-      font-size: 0.65rem;
-      opacity: 0.8;
-      color: #94a3b8;
-    }
-
-    .landing-link {
-      text-align: center;
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #2a3f5f;
-    }
-
-    .landing-link a {
-      color: #f59e0b;
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .landing-link a:hover {
-      color: #fbbf24;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 640px) {
-      .login-container {
-        padding: 1.5rem;
-        margin: 1rem;
-      }
-    }
-  </style>
+  <title>Iniciar Sesion - Pacific Coast Taxi</title>
+  <meta name="description" content="Inicia sesion en tu cuenta de Pacific Coast Taxi.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="login-page">
+  <div class="login-pattern"></div>
+  
   <div class="login-container">
-    <div class="login-header">
-      <div class="login-logo">🚕</div>
-      <h1>Pacific Coast</h1>
-      <p>Sistema de Gestión de Taxis</p>
+    <!-- Logo -->
+    <div class="login-logo">
+      <a href="index.html">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+        </div>
+        <span>PACIFIC COAST TAXI</span>
+      </a>
     </div>
 
-    <form id="loginForm">
-      <div class="error-message" id="errorMessage"></div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="usuario@pacificcoast.com" required>
+    <!-- Login Card -->
+    <div class="login-card">
+      <div class="login-header">
+        <h1>Bienvenido</h1>
+        <p>Selecciona tu tipo de cuenta para iniciar sesion</p>
       </div>
 
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" placeholder="••••••••" required>
+      <!-- Tabs -->
+      <div class="login-tabs">
+        <button class="login-tab active" data-tab="passenger">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span class="tab-label">Pasajero</span>
+        </button>
+        <button class="login-tab" data-tab="driver">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+            <circle cx="7" cy="17" r="2"/>
+            <path d="M9 17h6"/>
+            <circle cx="17" cy="17" r="2"/>
+          </svg>
+          <span class="tab-label">Conductor</span>
+        </button>
+        <button class="login-tab" data-tab="admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span class="tab-label">Admin</span>
+        </button>
       </div>
 
-      <button type="submit" class="login-btn">Iniciar Sesión</button>
-    </form>
+      <!-- Login Content -->
+      <div class="login-content">
+        <!-- Passenger Tab -->
+        <div class="login-tab-content active" id="passengerTab">
+          <form id="passengerForm">
+            <div id="passengerError" class="form-error" style="display: none;"></div>
+            <div class="form-group">
+              <label for="passengerEmail">Correo Electronico</label>
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <input type="email" id="passengerEmail" name="email" placeholder="correo@ejemplo.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="passengerPassword">Contrasena</label>
+              <div class="input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <input type="password" id="passengerPassword" name="password" placeholder="********" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label class="form-checkbox">
+                <input type="checkbox" name="remember">
+                <span>Recordarme</span>
+              </label>
+              <a href="#" class="form-link">Olvidaste tu contrasena?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Iniciar Sesion</button>
+          </form>
+        </div>
 
-    <div class="divider">Usuarios Demo</div>
+        <!-- Driver Tab -->
+        <div class="login-tab-content" id="driverTab">
+          <div class="demo-box">
+            <h4>Conductores Demo Disponibles:</h4>
+            <p>Selecciona un conductor para acceder al panel</p>
+            <div class="demo-drivers">
+              <button type="button" class="demo-driver" data-email="jcmendez@pacificcoast.taxi" data-name="Juan Carlos Mendez">
+                <strong>Juan Carlos Mendez</strong>
+                <span>jcmendez@pacificcoast.taxi - Toyota Corolla</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="merodriguez@pacificcoast.taxi" data-name="Maria Elena Rodriguez">
+                <strong>Maria Elena Rodriguez</strong>
+                <span>merodriguez@pacificcoast.taxi - Honda Civic</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="rgonzalez@pacificcoast.taxi" data-name="Roberto Gonzalez">
+                <strong>Roberto Gonzalez</strong>
+                <span>rgonzalez@pacificcoast.taxi - Nissan Sentra</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="aplopez@pacificcoast.taxi" data-name="Ana Patricia Lopez">
+                <strong>Ana Patricia Lopez</strong>
+                <span>aplopez@pacificcoast.taxi - Hyundai Accent</span>
+              </button>
+              <button type="button" class="demo-driver" data-email="camartinez@pacificcoast.taxi" data-name="Carlos Alberto Martinez">
+                <strong>Carlos Alberto Martinez</strong>
+                <span>camartinez@pacificcoast.taxi - Kia Rio</span>
+              </button>
+            </div>
+          </div>
+        </div>
 
-    <div class="demo-users">
-      <button class="demo-btn" type="button" data-email="admin@pacificcoast.com" data-password="admin123">
-        <strong>Administrador</strong>
-        <span>admin@pacificcoast.com</span>
-      </button>
-      <button class="demo-btn" type="button" data-email="user@pacificcoast.com" data-password="user123">
-        <strong>Usuario</strong>
-        <span>user@pacificcoast.com</span>
-      </button>
+        <!-- Admin Tab -->
+        <div class="login-tab-content" id="adminTab">
+          <div class="demo-box blue">
+            <h4>Acceso de Administrador</h4>
+            <p>Panel de control para gestionar el sistema</p>
+            <button type="button" class="demo-driver" id="adminLogin">
+              <strong>Administrador Principal</strong>
+              <span>admin@pacificcoast.taxi</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <div class="login-divider">
+          <span>O continua con</span>
+        </div>
+        <div class="social-buttons">
+          <button type="button" class="social-btn" id="googleLogin">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Google
+          </button>
+          <button type="button" class="social-btn" id="facebookLogin">
+            <svg width="20" height="20" fill="#1877F2" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            Facebook
+          </button>
+        </div>
+        <p class="login-register">
+          No tienes una cuenta? <a href="register.html">Registrate aqui</a>
+        </p>
+      </div>
     </div>
 
-    <div class="landing-link">
-      <a href="landing.html">← Volver a inicio</a>
+    <div class="login-back">
+      <a href="index.html">Volver al inicio</a>
     </div>
   </div>
 
-  <script src="js/auth.js"></script>
-  <script>
-    // Prevenir redireccion si ya esta autenticado
-    window.addEventListener('load', () => {
-      const user = AUTH.getCurrentUser();
-      if (user) {
-        window.location.href = 'admin-dashboard.html';
-      }
-    });
-
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const errorEl = document.getElementById('errorMessage');
-
-      const result = AUTH.login(email, password);
-      
-      if (result.success) {
-        window.location.href = 'admin-dashboard.html';
-      } else {
-        errorEl.textContent = result.error;
-        errorEl.classList.add('show');
-        setTimeout(() => errorEl.classList.remove('show'), 5000);
-      }
-    });
-
-    // Demo button handlers
-    document.querySelectorAll('.demo-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const email = this.dataset.email;
-        const password = this.dataset.password;
-        
-        document.getElementById('email').value = email;
-        document.getElementById('password').value = password;
-        document.getElementById('loginForm').submit();
-      });
-    });
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
