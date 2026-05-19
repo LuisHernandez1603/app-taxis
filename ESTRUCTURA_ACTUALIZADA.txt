@@ -1,0 +1,143 @@
+========================================
+PACIFIC COAST TAXI - ESTRUCTURA FINAL
+========================================
+
+FLUJO DE NAVEGACION:
+====================
+
+1. Usuario accede → index.html (LANDING PAGE PUBLICA)
+   - Información de servicios
+   - Botón "Inicia Sesión" → login.html
+   - Botón "Reservar Viaje" → login.html
+   - Botón "Soy Conductor" → login.html
+
+2. Usuario hace click en Login → login.html (LOGIN)
+   - Ingresa credenciales O selecciona usuario demo
+   - AUTH.login() valida credenciales
+   - Si es válido, guarda en localStorage
+   - Redirige a su dashboard según rol
+
+3. SEGUN EL ROL:
+   ✓ ADMIN → admin-dashboard.html (Dashboard de administración)
+   ✓ DRIVER → driver-panel.html (Panel del conductor)
+   ✓ PASSENGER → passenger-panel.html (Panel del pasajero)
+
+4. Si intenta acceder directamente a una ruta protegida sin autenticación
+   → Redirige a login.html
+
+5. Si intenta acceder a ruta de otro rol
+   → Redirige a su dashboard correcto
+
+
+ARCHIVOS PRINCIPALES:
+=====================
+
+PUBLICOS (sin autenticación):
+- index.html                  ← LANDING PAGE (Inicio)
+- login.html                  ← Sistema de login
+- about.html                  ← Nosotros
+- contact.html                ← Contacto
+
+PROTEGIDOS (requieren autenticación):
+- admin-dashboard.html        ← Dashboard admin
+- driver-panel.html           ← Panel conductor
+- passenger-panel.html        ← Panel pasajero
+
+GESTION (dentro del dashboard admin):
+- pages/trips.html            ← Gestión de viajes
+- pages/drivers.html          ← Gestión de conductores
+- pages/clients.html          ← Gestión de clientes
+- pages/reports.html          ← Reportes y BI
+
+
+ESTILOS:
+========
+- css/variables.css           ← Variables de tema
+- css/base.css                ← Reset y estilos globales
+- css/components.css          ← Componentes reutilizables
+- css/dashboard.css           ← Estilos del dashboard
+
+
+JAVASCRIPT:
+===========
+- js/auth.js                  ← Autenticación y control de roles (CLAVE)
+- js/data.js                  ← Capa de datos
+- js/utils.js                 ← Funciones compartidas
+- js/excel.js                 ← Exportación a Excel
+- js/dashboard.js             ← Lógica del dashboard admin
+- js/driver-panel.js          ← Lógica panel conductor
+- js/passenger-panel.js       ← Lógica panel pasajero
+- js/pages/trips.js           ← Gestión de viajes
+- js/pages/drivers.js         ← Gestión de conductores
+- js/pages/clients.js         ← Gestión de clientes
+- js/pages/reports.js         ← Reportes y BI
+
+
+USUARIOS DEMO:
+==============
+
+Admin:
+  Email: admin@pacificcoast.com
+  Password: admin123
+  Acceso: admin-dashboard.html
+
+Conductor:
+  Email: driver@pacificcoast.com
+  Password: driver123
+  Acceso: driver-panel.html
+
+Pasajero:
+  Email: passenger@pacificcoast.com
+  Password: pass123
+  Acceso: passenger-panel.html
+
+
+COMO FUNCIONA LA AUTENTICACION:
+================================
+
+1. Usuario ingresa email/password en login.html
+
+2. Se llama AUTH.login(email, password) en js/auth.js
+
+3. Si es válido:
+   - Guarda en localStorage: {email, role, name, loginTime}
+   - Retorna {success: true}
+   - Redirige a index.html
+
+4. En cada página protegida se ejecuta:
+   - AUTH.redirectByRole() → Verifica si está autenticado
+   - Si no tiene sesión → Redirige a login.html
+   - Si tiene sesión pero rol no permite → Redirige a su dashboard
+   - Si todo OK → Muestra la página
+   - AUTH.initUI() → Actualiza header con nombre del usuario
+
+5. Para logout:
+   - Click en botón de logout
+   - AUTH.logout() → Limpia localStorage
+   - Redirige a index.html
+
+
+PROTECCIONES:
+==============
+
+✓ No puedes acceder a admin-dashboard.html siendo conductor
+  → Te redirige a driver-panel.html
+
+✓ No puedes acceder a driver-panel.html siendo pasajero
+  → Te redirige a passenger-panel.html
+
+✓ No puedes acceder a página protegida sin autenticación
+  → Te redirige a login.html
+
+✓ Si haces logout, vuelves a index.html
+
+
+SEGURIDAD:
+==========
+
+- Las contraseñas se guardan en js/auth.js (para demo)
+- En producción debes usar una API con hash de contraseñas
+- Las credenciales se guardan en localStorage (no ideal para producción)
+- En producción usa httpOnly cookies
+
+========================================

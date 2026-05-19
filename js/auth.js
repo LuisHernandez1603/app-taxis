@@ -53,13 +53,17 @@ const AUTH = {
   redirectByRole: function() {
     const user = this.getCurrentUser();
     if (!user) {
-      window.location.href = 'login.html';
+      // Si no esta autenticado y esta en pagina protegida, redirige a login
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      if (['admin-dashboard.html', 'driver-panel.html', 'passenger-panel.html'].includes(currentPage)) {
+        window.location.href = 'login.html';
+      }
       return;
     }
 
     // Definir rutas por rol
     const routes = {
-      admin: 'index.html',
+      admin: 'admin-dashboard.html',
       driver: 'driver-panel.html',
       passenger: 'passenger-panel.html'
     };
@@ -67,7 +71,7 @@ const AUTH = {
     // Si intenta acceder a una ruta no autorizada, redirigir a su dashboard
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
-    if (currentPage === 'index.html' && user.role !== 'admin') {
+    if (currentPage === 'admin-dashboard.html' && user.role !== 'admin') {
       window.location.href = routes[user.role];
     }
     if (currentPage === 'driver-panel.html' && user.role !== 'driver') {
@@ -104,7 +108,7 @@ const AUTH = {
     if (logoutBtn) {
       logoutBtn.addEventListener('click', () => {
         this.logout();
-        window.location.href = 'landing.html';
+        window.location.href = 'index.html';
       });
     }
   }
