@@ -59,6 +59,11 @@ const AUTH = {
         window.location.href = 'index.html';
       });
     }
+  },
+
+  // Redirigir por rol (mantener para compatibilidad)
+  redirectByRole: function() {
+    // Función vacía para compatibilidad
   }
 };
 
